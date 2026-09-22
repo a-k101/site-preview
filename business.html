@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Serious security, sized for a small firm — Business — [Company name]</title>
+<meta name="description" content="Enterprise-grade protection for small businesses and regulated firms — law, medical, accountancy — set up and looked after by a local expert. Your data stays on your premises.">
+<style>
+/* =========================================================
+   Design system
+   Deep pine green + muted brass on soft neutral paper.
+   Warm serif headings, clean system sans body.
+   System fonts only — zero third-party requests.
+   ========================================================= */
+
+:root {
+  /* Colour */
+  --paper:        #F3F4F1;
+  --surface:      #FCFCFA;
+  --ink:          #17241E;
+  --ink-soft:     #52605A;
+  --green:        #1E4034;
+  --green-deep:   #132A22;
+  --brass:        #9A7736;
+  --brass-light:  #B7913F;
+  --line:         #DCE0DA;
+  --on-dark:      #EDEFEA;
+  --on-dark-soft: #AEBBB1;
+
+  /* Type */
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  /* Rhythm */
+  --measure: 34rem;      /* ~62ch reading width */
+  --container: 72rem;
+  --gap: clamp(1.25rem, 4vw, 2.5rem);
+  --section-y: clamp(3.5rem, 8vw, 6.5rem);
+  --radius: 4px;
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+img { max-width: 100%; display: block; }
+a { color: var(--green); text-decoration-color: var(--brass); text-underline-offset: 3px; }
+a:hover { color: var(--brass); }
+
+/* ---------- Typography ---------- */
+h1, h2, h3, h4 {
+  font-family: var(--serif);
+  font-weight: 600;
+  line-height: 1.14;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0 0 0.6em;
+}
+h1 { font-size: clamp(2.5rem, 6vw, 4.1rem); line-height: 1.06; }
+h2 { font-size: clamp(1.85rem, 3.6vw, 2.7rem); }
+h3 { font-size: clamp(1.3rem, 2.2vw, 1.6rem); }
+h4 { font-size: 1.12rem; }
+p { margin: 0 0 1.1rem; }
+p, li { max-width: var(--measure); }
+strong { font-weight: 600; }
+.lead { font-size: clamp(1.15rem, 2vw, 1.4rem); line-height: 1.5; color: var(--ink); }
+.muted { color: var(--ink-soft); }
+em { font-style: italic; }
+
+/* ---------- Layout ---------- */
+.container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: clamp(1.25rem, 5vw, 3rem); }
+.section { padding-block: var(--section-y); }
+.section--tight { padding-block: clamp(2.5rem, 5vw, 4rem); }
+.narrow { max-width: 46rem; }
+.stack > * + * { margin-top: 1.1rem; }
+.eyebrow { font-family: var(--sans); font-size: 0.95rem; color: var(--brass); font-weight: 600; margin: 0 0 0.8rem; }
+
+/* Dark green band */
+.band-dark { background: var(--green); color: var(--on-dark); }
+.band-dark h1, .band-dark h2, .band-dark h3, .band-dark h4 { color: var(--on-dark); }
+.band-dark .muted { color: var(--on-dark-soft); }
+.band-dark a { color: var(--on-dark); text-decoration-color: var(--brass-light); }
+.band-dark a:hover { color: var(--brass-light); }
+.band-deep { background: var(--green-deep); color: var(--on-dark); }
+.band-deep h1, .band-deep h2, .band-deep h3 { color: var(--on-dark); }
+
+.band-surface { background: var(--surface); }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0.95rem 1.6rem;
+  border-radius: var(--radius);
+  background: var(--green);
+  color: var(--on-dark);
+  border: 1px solid var(--green);
+  cursor: pointer;
+  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+.btn:hover { background: var(--green-deep); border-color: var(--green-deep); color: var(--on-dark); }
+.btn--ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+.btn--ghost:hover { border-color: var(--brass); color: var(--ink); background: transparent; }
+.band-dark .btn { background: var(--brass); border-color: var(--brass); color: #1a1408; }
+.band-dark .btn:hover { background: var(--brass-light); border-color: var(--brass-light); }
+.textlink { font-weight: 600; color: var(--green); text-decoration: none; border-bottom: 1px solid var(--brass); padding-bottom: 1px; }
+.textlink:hover { color: var(--brass); }
+
+/* ---------- Header / nav ---------- */
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(243,244,241,0.9);
+  backdrop-filter: saturate(180%) blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.nav { display: flex; align-items: center; justify-content: space-between; min-height: 68px; }
+.brand { font-family: var(--serif); font-size: 1.25rem; font-weight: 600; color: var(--ink); text-decoration: none; letter-spacing: -0.01em; }
+.brand:hover { color: var(--ink); }
+.nav-links { display: flex; align-items: center; gap: 1.6rem; list-style: none; margin: 0; padding: 0; }
+.nav-links a { font-family: var(--sans); font-size: 1rem; color: var(--ink); text-decoration: none; padding: 0.4rem 0; border-bottom: 2px solid transparent; }
+.nav-links a:hover { color: var(--green); border-bottom-color: var(--brass); }
+.nav-links a[aria-current="page"] { border-bottom-color: var(--green); }
+.nav-toggle { display: none; background: none; border: 0; cursor: pointer; padding: 0.5rem; }
+.nav-toggle span { display: block; width: 24px; height: 2px; background: var(--ink); margin: 5px 0; transition: 0.2s; }
+
+@media (max-width: 860px) {
+  .nav-toggle { display: block; }
+  .nav-links {
+    position: absolute; top: 100%; left: 0; right: 0;
+    flex-direction: column; align-items: flex-start; gap: 0;
+    background: var(--surface); border-bottom: 1px solid var(--line);
+    padding: 0.5rem clamp(1.25rem, 5vw, 3rem) 1.25rem;
+    display: none;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links li { width: 100%; }
+  .nav-links a { display: block; width: 100%; padding: 0.7rem 0; border-bottom: 1px solid var(--line); }
+  .nav-links a:hover { border-bottom-color: var(--line); }
+  .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle.open span:nth-child(2) { opacity: 0; }
+  .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+}
+
+/* ---------- Hero ---------- */
+.hero { padding-block: clamp(3.5rem, 9vw, 7rem); }
+.hero h1 { max-width: 16ch; }
+.hero .lead { max-width: 40rem; }
+.hero-actions { margin-top: 1.8rem; display: flex; flex-wrap: wrap; gap: 0.9rem; }
+
+/* ---------- Doorways (home) ---------- */
+.doorways { display: grid; gap: 0; border-top: 1px solid var(--line); }
+.doorway {
+  display: block; text-decoration: none; color: inherit;
+  padding: 2rem 0; border-bottom: 1px solid var(--line);
+  transition: background 0.18s ease, padding-left 0.18s ease;
+}
+.doorway:hover { background: var(--surface); padding-left: 0.75rem; color: inherit; }
+.doorway h3 { margin-bottom: 0.35rem; }
+.doorway .go { display: inline-block; margin-top: 0.6rem; font-family: var(--sans); font-weight: 600; font-size: 0.98rem; color: var(--brass); }
+.doorway:hover .go { color: var(--green); }
+
+/* ---------- Feature list ---------- */
+.features { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.5rem; }
+.features li { max-width: none; padding-left: 1.25rem; border-left: 2px solid var(--brass); }
+.features li strong { display: block; margin-bottom: 0.2rem; font-size: 1.05rem; }
+.features li span { color: var(--ink-soft); }
+.band-dark .features li { border-left-color: var(--brass-light); }
+.band-dark .features li span { color: var(--on-dark-soft); }
+
+@media (min-width: 720px) {
+  .features--2 { grid-template-columns: 1fr 1fr; gap: 1.5rem 2.5rem; }
+}
+
+/* ---------- Levels (two options) ---------- */
+.levels { display: grid; gap: 1.5rem; margin-top: 1.5rem; }
+@media (min-width: 780px) { .levels { grid-template-columns: 1fr 1fr; } }
+.level { background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--brass); border-radius: var(--radius); padding: 1.75rem; }
+.level h3 { margin-bottom: 0.2rem; }
+.level .tag { color: var(--ink-soft); font-size: 0.98rem; margin-bottom: 1rem; }
+.level ul { list-style: none; margin: 0; padding: 0; }
+.level li { position: relative; padding-left: 1.4rem; margin-bottom: 0.6rem; max-width: none; }
+.level li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 7px; height: 7px; background: var(--brass); border-radius: 50%; }
+
+/* ---------- Honesty note ---------- */
+.note {
+  border-left: 3px solid var(--green);
+  background: var(--surface);
+  padding: 1.25rem 1.5rem; border-radius: 0 var(--radius) var(--radius) 0;
+  margin: 1.5rem 0; max-width: var(--measure);
+}
+.note p:last-child { margin-bottom: 0; }
+.band-dark .note { background: rgba(255,255,255,0.06); border-left-color: var(--brass-light); }
+
+/* ---------- Steps ---------- */
+.steps { list-style: none; counter-reset: step; margin: 1.25rem 0 0; padding: 0; display: grid; gap: 1.25rem; }
+.steps li { counter-increment: step; position: relative; padding-left: 2.6rem; max-width: 40rem; }
+.steps li::before {
+  content: counter(step); position: absolute; left: 0; top: -0.1rem;
+  width: 1.8rem; height: 1.8rem; display: grid; place-items: center;
+  font-family: var(--sans); font-weight: 600; font-size: 0.9rem;
+  color: var(--on-dark); background: var(--green); border-radius: 50%;
+}
+.steps li strong { display: block; }
+
+/* ---------- FAQ ---------- */
+.faq-group { margin-bottom: 2.5rem; }
+.faq-item { border-bottom: 1px solid var(--line); padding: 1.4rem 0; }
+.faq-item:first-of-type { border-top: 1px solid var(--line); }
+.faq-item h3 { font-family: var(--sans); font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--ink); }
+.faq-item p:last-child { margin-bottom: 0; }
+.faq-item .sub { list-style: none; margin: 0.6rem 0 0; padding: 0; }
+.faq-item .sub li { padding-left: 1.2rem; position: relative; margin-bottom: 0.5rem; }
+.faq-item .sub li::before { content: ""; position: absolute; left: 0; top: 0.66em; width: 6px; height: 6px; background: var(--brass); border-radius: 50%; }
+
+/* ---------- Forms ---------- */
+.form { max-width: 40rem; margin-top: 1.5rem; }
+.field { margin-bottom: 1.15rem; }
+.field label { display: block; font-weight: 600; font-size: 0.98rem; margin-bottom: 0.35rem; }
+.field input, .field select, .field textarea {
+  width: 100%; font-family: var(--sans); font-size: 1rem; color: var(--ink);
+  padding: 0.7rem 0.85rem; background: var(--surface);
+  border: 1px solid var(--line); border-radius: var(--radius);
+}
+.field input:focus, .field select:focus, .field textarea:focus {
+  outline: 2px solid var(--brass); outline-offset: 1px; border-color: var(--brass);
+}
+.field textarea { min-height: 120px; resize: vertical; }
+.form .privacy-line { font-size: 0.92rem; color: var(--ink-soft); margin-top: 1rem; }
+
+/* ---------- Prose (legal + long text pages) ---------- */
+.prose h2 { margin-top: 2.2rem; }
+.prose h3 { font-family: var(--sans); font-size: 1.1rem; margin-top: 1.6rem; margin-bottom: 0.4rem; }
+.prose ul { padding-left: 1.2rem; }
+.prose li { margin-bottom: 0.5rem; }
+.prose .placeholder { color: var(--brass); font-style: italic; }
+
+/* ---------- Footer ---------- */
+.site-footer { background: var(--green-deep); color: var(--on-dark-soft); padding-block: clamp(2.5rem, 6vw, 4rem) 2rem; }
+.footer-grid { display: grid; gap: 2rem; grid-template-columns: 1fr; }
+@media (min-width: 720px) { .footer-grid { grid-template-columns: 1.4fr 1fr 1fr; } }
+.site-footer h4 { color: var(--on-dark); font-family: var(--sans); font-size: 0.95rem; letter-spacing: 0.02em; margin-bottom: 0.9rem; }
+.site-footer a { color: var(--on-dark-soft); text-decoration: none; }
+.site-footer a:hover { color: var(--brass-light); }
+.footer-nav { list-style: none; margin: 0; padding: 0; }
+.footer-nav li { margin-bottom: 0.55rem; }
+.footer-brand { font-family: var(--serif); font-size: 1.3rem; color: var(--on-dark); margin-bottom: 0.6rem; }
+.footer-brand + p { color: var(--on-dark-soft); max-width: 24rem; }
+.footer-bottom { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.12); font-size: 0.88rem; color: var(--on-dark-soft); }
+
+/* ---------- Utilities ---------- */
+.center { text-align: center; }
+.mt-0 { margin-top: 0; }
+.divider { height: 1px; background: var(--line); border: 0; margin: 0; }
+.skip-link { position: absolute; left: -9999px; top: 0; background: var(--green); color: #fff; padding: 0.6rem 1rem; z-index: 100; }
+.skip-link:focus { left: 0; }
+
+/* ---------- Motion: one hero reveal only ---------- */
+.reveal > * { opacity: 0; transform: translateY(14px); }
+.reveal.in > * { opacity: 1; transform: none; transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.in > *:nth-child(2) { transition-delay: 0.09s; }
+.reveal.in > *:nth-child(3) { transition-delay: 0.18s; }
+.reveal.in > *:nth-child(4) { transition-delay: 0.27s; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal > *, .reveal.in > * { opacity: 1; transform: none; transition: none; }
+  * { transition: none !important; }
+}
+
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="index.html">[Company&nbsp;name]</a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="individuals.html">Individuals</a></li>
+      <li><a href="home-family.html">Home &amp; Family</a></li>
+      <li><a href="business.html" aria-current="page">Business</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="band-dark hero">
+    <div class="container reveal">
+      <h1>Serious security, sized for a small firm.</h1>
+      <p class="lead">Small businesses — and especially law, medical and accountancy firms — hold exactly the data attackers want, but rarely have the budget for a full-time security team.</p>
+      <p class="muted">We're the middle ground: enterprise-grade protection and compliance, set up and looked after by a local expert, and priced for a small team. And the way we run it, your data stays on your premises — no US clouds, no third parties handling your traffic.</p>
+      <div class="hero-actions"><a class="btn" href="#enquire">Talk to us</a></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>A breach costs more than you think</h2>
+      <p>A security breach isn't just a bit of downtime. It's lost client trust, a regulator asking hard questions, and a bill that lands whether you can afford it or not. For a regulated firm, it can put your professional standing on the line.</p>
+      <p>Government figures put the average cost of a breach at a medium-sized UK business at around £11,000 — before you count the lost clients and the reputational damage that follow. A monthly retainer with us costs a fraction of that: a small, predictable cost in place of a large, unpredictable one.</p>
+    </div>
+  </section>
+
+  <section class="section band-surface">
+    <div class="container">
+      <h2>We set it up properly — then we look after it</h2>
+      <p class="narrow">Most security problems come from things left half-done: a box no one configured correctly, updates no one applied, a warning no one saw. We fix that.</p>
+      <ul class="features features--2" style="margin-top:1.25rem">
+        <li><strong>Set up right.</strong><span>A professional firewall, configured properly for how your business actually works — not a consumer router left on its defaults.</span></li>
+        <li><strong>Watched over.</strong><span>We monitor for threats and know if something's wrong before you do.</span></li>
+        <li><strong>Kept current.</strong><span>Updates and security patches, tested and applied — never left to chance.</span></li>
+        <li><strong>A person to call.</strong><span>A named human who already knows your setup answers the phone. No ticket queue, no call centre.</span></li>
+      </ul>
+      <p class="narrow" style="margin-top:1.5rem">Setup is a one-off. The looking-after is a simple monthly retainer — a flat fee for a small office, or priced per person for a regulated firm, so it scales sensibly as your team grows. We look after your security setup and the network it protects.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Which fits your business?</h2>
+      <p class="narrow muted">Every business is different, so we offer two levels. Not sure which is right? Tell us about your firm and we'll recommend the fit — that's what we're here for.</p>
+      <div class="levels">
+        <div class="level">
+          <h3>For a small business</h3>
+          <p class="tag">a small office, shop or studio not handling regulated or highly sensitive data</p>
+          <ul>
+            <li>Solid, professionally-configured protection on a single gateway</li>
+            <li>Ads, trackers, malware and scam sites blocked across your network</li>
+            <li>A separate guest network, so visitors never touch your business devices</li>
+            <li>Watched over and kept current on a simple monthly plan, with a person to call</li>
+          </ul>
+        </div>
+        <div class="level">
+          <h3>For a regulated or professional firm</h3>
+          <p class="tag">law, medical, dental, accountancy: where client confidentiality and compliance are non-negotiable</p>
+          <ul>
+            <li>An enterprise-grade firewall with full traffic monitoring and intrusion detection</li>
+            <li>Your network properly segregated — work devices, guest access and any connected equipment kept apart, so one weak point can't reach everything</li>
+            <li>Secure remote working: an encrypted VPN back to your office, so staff working from home or on the move are as protected off-site as in the building</li>
+            <li>Runs entirely on your premises, built on OPNsense — a professional, open-source firewall platform that can be independently audited, with no US cloud and nothing proprietary phoning home</li>
+            <li>A simple per-person monthly retainer that scales with your team</li>
+          </ul>
+        </div>
+      </div>
+      <p style="margin-top:1.5rem"><em>Not sure which you need?</em> <a class="textlink" href="#enquire">Tell us about your firm</a> and we'll recommend the right fit.</p>
+    </div>
+  </section>
+
+  <section class="section band-dark">
+    <div class="container">
+      <h2>Why a small firm chooses us</h2>
+      <ul class="features features--2" style="margin-top:1.5rem">
+        <li><strong>Built for firms like yours.</strong><span>The big security companies treat a four-person practice as ticket number four thousand. Small regulated firms are exactly who we're for.</span></li>
+        <li><strong>Local and personal.</strong><span>A real, named person who turns up when needed and answers the phone — the same person who set everything up.</span></li>
+        <li><strong>Your data stays yours.</strong><span>We work locally by default, with no US clouds and minimal logging — and always under a formal data processing agreement, so your compliance officer has one less thing to worry about.</span></li>
+        <li><strong>A local AI, built for this — with a human in charge.</strong><span>We built our own security AI and run it locally, never in a third-party cloud. It watches your logs around the clock and flags anything unusual fast — but a person makes every call.</span></li>
+        <li><strong>Never dependent on one memory.</strong><span>Every setup is fully documented and backed up, so your protection doesn't hinge on any single person being reachable.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="enquire">
+    <div class="container">
+      <h2>Let's talk</h2>
+      <p class="muted">Tell us a little about your business and we'll get back to you. No pressure, no jargon.</p>
+      <form class="form" method="post" action="[form-endpoint]">
+        <div class="field"><label for="name">Your name</label><input id="name" name="name" type="text" required></div>
+        <div class="field"><label for="firm">Business / firm name</label><input id="firm" name="firm" type="text"></div>
+        <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required></div>
+        <div class="field"><label for="phone">Phone <span class="muted">(optional)</span></label><input id="phone" name="phone" type="tel"></div>
+        <div class="field"><label for="kind">What kind of business are you?</label><input id="kind" name="kind" type="text" placeholder="general small business / law / medical / dental / accountancy / other"></div>
+        <div class="field"><label for="staff">Roughly how many staff?</label><input id="staff" name="staff" type="text"></div>
+        <div class="field"><label for="location">Roughly where are you based? <span class="muted">(so we can check you're in our area)</span></label><input id="location" name="location" type="text"></div>
+        <div class="field"><label for="looking">What are you looking for?</label>
+          <select id="looking" name="looking">
+            <option>General protection for a small business</option>
+            <option>Security &amp; compliance for a regulated firm</option>
+            <option>Not sure — help me choose</option>
+          </select>
+        </div>
+        <div class="field"><label for="message">Anything you'd like to tell us <span class="muted">(optional)</span></label><textarea id="message" name="message"></textarea></div>
+        <button class="btn" type="submit">Send</button>
+        <p class="privacy-line">We'll only ever use your details to answer your enquiry. See our <a href="privacy-notice.html">Privacy Notice</a>.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">[Company&nbsp;name]</div>
+        <p>Privacy and security, set up properly and kept working — by a real person near you. London and the surrounding area.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul class="footer-nav">
+          <li><a href="individuals.html">Individuals</a></li>
+          <li><a href="home-family.html">Home &amp; Family</a></li>
+          <li><a href="business.html">Business</a></li>
+          <li><a href="why-privacy-matters.html">Why privacy matters</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>The details</h4>
+        <ul class="footer-nav">
+          <li><a href="privacy-notice.html">Privacy notice</a></li>
+          <li><a href="terms.html">Terms &amp; returns</a></li>
+          <li><a href="vulnerability-disclosure.html">Report a security issue</a></li>
+          <li><a href="recycling.html">Recycling (WEEE)</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>[Company name] — [company number and registered office, once incorporated]. We serve London and roughly 20 miles around it.</p>
+    </div>
+  </div>
+</footer>
+<script>
+/* Mobile nav toggle + one hero reveal on load. No third-party requests. */
+(function () {
+  "use strict";
+
+  // --- Mobile navigation ---
+  var toggle = document.querySelector(".nav-toggle");
+  var links = document.querySelector(".nav-links");
+  if (toggle && links) {
+    toggle.addEventListener("click", function () {
+      var open = links.classList.toggle("open");
+      toggle.classList.toggle("open", open);
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    // Close the menu when a link is chosen
+    links.addEventListener("click", function (e) {
+      if (e.target.tagName === "A") {
+        links.classList.remove("open");
+        toggle.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+
+  // --- One deliberate hero reveal on load ---
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var hero = document.querySelector(".reveal");
+  if (hero && !reduce) {
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () { hero.classList.add("in"); });
+    });
+  } else if (hero) {
+    hero.classList.add("in");
+  }
+})();
+
+</script>
+</body>
+</html>
